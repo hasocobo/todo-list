@@ -1,13 +1,14 @@
-const Project = function(..._tasks) {
+const Project = function(_title = "", ..._tasks) {
     let tasks = _tasks;
-
-    const getTasks = function() {
-        return tasks;
-    }
+    let title = _title;
+    
+    const getTasks = () => tasks;
+    const getTitle = () => title;
 
     const addTask = function(_task) {
         tasks.push(_task);
     }
+
 
     Project.prototype.toString = function() {
 
@@ -21,6 +22,7 @@ const Project = function(..._tasks) {
 
     return {
         getTasks,
+        getTitle,
         addTask,
         log
     }

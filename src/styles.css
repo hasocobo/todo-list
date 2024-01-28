@@ -1,0 +1,141 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&display=swap');
+
+:root {
+    --bg-blue: #ecfeff;
+    --bg-beige: #fffbeb;
+    --bg-white: #fafafa;
+    --bg-yellow: #f2f2e3;
+}
+
+*, ::after, ::before {
+    box-sizing: border-box;
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    height: 100dvh;
+}
+
+header {
+    padding: 1rem 2rem;
+    background-color: var(--bg-blue);
+    font-size: larger;
+    display: flex;
+    align-items: center;
+    /*border-bottom: .1px dotted gray;*/
+    box-shadow: inset 0px -2px 3px -3px gray;
+}
+
+header > h1 {
+    font-family: 'Dancing Script', cursive;
+    font-weight: 900;
+}
+
+.header > h1 ::before {
+    content: '';
+    height: 3rem;
+    width: 3rem;
+    background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Microsoft_To-Do_icon.png/735px-Microsoft_To-Do_icon.png);
+}
+
+main 
+h1, h2, h3, h4, h5, h6 {
+
+}
+
+main {
+    background-color: var(--bg-beige);
+    flex-grow: 1;
+    display: flex;
+}
+
+.tasks {
+    background-color: var(--bg-white);
+    display: flex;
+    justify-content: center;
+    padding-top: 3rem;
+    flex: auto;
+}
+
+.project-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.padding-sb {
+    padding: 0.5rem 2rem;
+}
+
+.project:hover {
+    cursor: pointer;
+    background-color: rgb(223, 223, 192);
+}
+
+.project {
+    text-align: center;
+    transition: 0.3s;
+}
+
+.logo img {
+    max-width: 40px;
+    max-height: 35px;
+    vertical-align: middle;
+}
+
+.icon-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.task-card {
+    width: 500px;
+    min-height: 400px;
+    max-height: 600px;
+    background-color: var(--bg-yellow);
+    border-radius: 16px;
+
+    overflow: auto;
+}
+
+.task-content {
+
+}
+
+.title {
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.task {
+    padding: 1rem 2rem;
+    border-bottom: 1px dotted gray;
+    transition: 0.3s;
+}
+
+.task:hover {
+    background-color: #d2d2c9;
+    cursor: pointer;
+}
+
+.description-panel {
+    padding: 1rem 2rem;
+    background-color: whitesmoke;
+    transition: .1s;
+}
+
+.disabled {
+    overflow: hidden;
+    max-height: 0;
+    padding: 0rem 2rem;
+}
+
+.project-content > .icon-container {
+    position: relative;
+    top: 2px;
+}

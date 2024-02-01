@@ -1,141 +1,208 @@
-@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&display=swap");
 
 :root {
-    --bg-blue: #ecfeff;
-    --bg-beige: #fffbeb;
-    --bg-white: #fafafa;
-    --bg-yellow: #f2f2e3;
+  --bg-blue: #ecfeff;
+  --bg-beige: #fffbeb;
+  --bg-white: #fafafa;
+  --bg-yellow: #f2f2e3;
 }
 
-*, ::after, ::before {
-    box-sizing: border-box;
-    margin: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+*,
+::after,
+::before {
+  box-sizing: border-box;
+  margin: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
 body {
-    display: flex;
-    flex-direction: column;
-    height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  height: 100dvh;
 }
 
 header {
-    padding: 1rem 2rem;
-    background-color: var(--bg-blue);
-    font-size: larger;
-    display: flex;
-    align-items: center;
-    /*border-bottom: .1px dotted gray;*/
-    box-shadow: inset 0px -2px 3px -3px gray;
+  padding: 1rem 2rem;
+  background-color: var(--bg-blue);
+  font-size: larger;
+  display: flex;
+  align-items: center;
+  /*border-bottom: .1px dotted gray;*/
+  box-shadow: inset 0px -2px 3px -3px gray;
 }
 
 header > h1 {
-    font-family: 'Dancing Script', cursive;
-    font-weight: 900;
+  font-family: "Dancing Script", cursive;
+  font-weight: 900;
 }
 
-.header > h1 ::before {
-    content: '';
-    height: 3rem;
-    width: 3rem;
-    background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Microsoft_To-Do_icon.png/735px-Microsoft_To-Do_icon.png);
-}
-
-main 
-h1, h2, h3, h4, h5, h6 {
-
+.sidebar {
+  box-shadow: inset -2px 0 3px -3px gray;
 }
 
 main {
-    background-color: var(--bg-beige);
-    flex-grow: 1;
-    display: flex;
+  background-color: var(--bg-beige);
+  flex-grow: 1;
+  display: flex;
 }
 
 .tasks {
-    background-color: var(--bg-white);
-    display: flex;
-    justify-content: center;
-    padding-top: 3rem;
-    flex: auto;
+  background-color: var(--bg-white);
+  display: flex;
+  justify-content: center;
+  padding-top: 3rem;
+  flex: auto;
 }
 
 .project-content {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .padding-sb {
-    padding: 0.5rem 2rem;
+  padding: 0.5rem 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .project:hover {
-    cursor: pointer;
-    background-color: rgb(223, 223, 192);
+  cursor: pointer;
+  background-color: rgb(223, 223, 192);
 }
 
 .project {
-    text-align: center;
-    transition: 0.3s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.3s;
+  box-shadow: inset 0px -2px 3px -3px black;
+  width: 250px;
+  min-width: 250px;
+  min-height: 50px;
+}
+
+.project:active {
+  background-color: rgb(156, 156, 147);
 }
 
 .logo img {
-    max-width: 40px;
-    max-height: 35px;
-    vertical-align: middle;
+  max-width: 40px;
+  max-height: 35px;
+  vertical-align: middle;
 }
 
 .icon-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sidebar .icon-container {
+  position: relative;
+}
+
+.material-symbols-outlined.green {
+  color: rgb(104, 155, 104);
+}
+
+.material-symbols-outlined.red {
+  color: rgb(189, 140, 140);
 }
 
 .task-card {
-    width: 500px;
-    min-height: 400px;
-    max-height: 600px;
-    background-color: var(--bg-yellow);
-    border-radius: 16px;
-
-    overflow: auto;
+  width: 500px;
+  min-height: 400px;
+  max-height: 600px;
+  background-color: var(--bg-yellow);
+  border-radius: 16px;
+  overflow: auto;
+  border: 0.1px solid wheat;
 }
 
-.task-content {
+.mouse-down {
+  background-color: rgb(123, 123, 123);
+}
 
+.active {
+  background-color: aquamarine;
 }
 
 .title {
-    display: flex;
-    justify-content: space-between;
-
+  display: flex;
+  justify-content: space-between;
 }
 
 .task {
-    padding: 1rem 2rem;
-    border-bottom: 1px dotted gray;
-    transition: 0.3s;
+  padding: 1rem 2rem;
+  border-bottom: 1px dotted gray;
+  transition: 0.3s;
 }
 
 .task:hover {
-    background-color: #d2d2c9;
-    cursor: pointer;
+  background-color: #d2d2c9;
+  cursor: pointer;
+}
+
+.task:active {
+  background-color: rgb(156, 156, 147);
 }
 
 .description-panel {
-    padding: 1rem 2rem;
-    background-color: whitesmoke;
-    transition: .1s;
+  padding: 1rem 2rem;
+  background-color: whitesmoke;
+  transition: 0.1s;
 }
 
 .disabled {
-    overflow: hidden;
-    max-height: 0;
-    padding: 0rem 2rem;
+  overflow: hidden;
+  max-height: 0;
+  padding: 0rem 2rem;
 }
 
 .project-content > .icon-container {
+  position: relative;
+  top: 2px;
+}
+
+.icon-container {
+  border-radius: 100%;
+  transition: 0.3s;
+}
+
+.icon-container:hover {
+  background-color: white;
+}
+
+.hide {
+  display: none;
+}
+
+.sidebar input {
+  appearance: none;
+  border: 1px solid gray;
+  outline: none;
+  border-radius: 2px;
+}
+
+form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#add-task {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .title {
+    gap: 2px;
+  }
+
+  .icon-container {
     position: relative;
-    top: 2px;
+    top: 0.2px;
+  }
 }

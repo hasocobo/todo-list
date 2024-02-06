@@ -179,6 +179,16 @@ main {
   display: none;
 }
 
+.sidebar form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sidebar .hide {
+  display: none;
+}
+
 .sidebar input {
   appearance: none;
   border: 1px solid gray;
@@ -186,11 +196,6 @@ main {
   border-radius: 2px;
 }
 
-form {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
 
 #add-task {
   display: flex;
@@ -205,4 +210,67 @@ form {
     position: relative;
     top: 0.2px;
   }
+}
+
+dialog {
+  width: 200px;
+  height: 200px;
+  border-radius: 2rem;
+  border: 1px solid grey;
+  position: absolute;
+  overflow: hidden;
+  margin-inline: auto;
+
+}
+
+dialog[open] {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+form:not(.sidebar form) {
+  padding: 20px;
+  height: inherit;
+  display: grid;
+  grid-template-rows: 3fr 1fr;
+  align-items: center;
+}
+
+
+.form-body {
+  grid-row: 1/2;
+  display: grid;
+  justify-items: center;
+  gap: 8px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+
+button {
+  background-color: #fffbeb;
+  border: 1px solid gray;
+  border-radius: 8px;
+  padding: 8px;
+}
+
+button:hover {
+  cursor: pointer;
+  background-color: #d7d5cc;
+}
+
+input {
+  border: 0.5px solid gray;
+  outline: none;
+  border-radius: 8px;
+  padding-left: px;
+}
+
+.active-project {
+  background-color: bisque;
 }

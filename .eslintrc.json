@@ -10,7 +10,8 @@
   },
   "rules": {
     "linebreak-style": "off",
-    "no-restricted-syntax":"warn",
-    "no-unused-vars": "warn"
+    "no-restricted-syntax":"off",
+    "no-unused-vars": "off",
+    "one-var": "off"
   }
 }

@@ -1,4 +1,8 @@
+/* eslint-disable no-loop-func */
 import { Projects } from './project';
+import Task from './task';
+
+let activeProject = null;
 
 const showTasks = function (project) {
   const taskContent = document.querySelector('.task-content');
@@ -6,6 +10,7 @@ const showTasks = function (project) {
   while (taskContent.firstChild) {
     taskContent.removeChild(taskContent.lastChild);
   }
+  taskContent.classList.remove('hide');
 
   for (const _task of project.getTasks()) {
     const task = document.createElement('div');
@@ -54,6 +59,7 @@ const showTasks = function (project) {
 const showProjects = function (projects) {
   const sideBar = document.querySelector('.sidebar');
   const addNewButton = document.querySelector('#new-project');
+  const taskTitle = document.querySelector('#task-title');
 
   while (sideBar.firstChild) {
     sideBar.removeChild(sideBar.lastChild);
@@ -76,19 +82,21 @@ const showProjects = function (projects) {
     paddingSB.appendChild(projectTitle);
 
     projectDOM.addEventListener('click', () => {
+      activeProject = project;
+      taskTitle.textContent = project.getTitle();
       showTasks(project);
     });
   }
 };
 
-const addProject = (function () {
-  const addNewButton = document.querySelector('#new-project');
-  const inputField = document.querySelector('input#add-project');
-  const confirmButton = document.querySelector('#confirm-button');
-  const cancelButton = document.querySelector('#cancel-button');
-  const projectContent = document.querySelector(
-    '#new-project .project-content',
-  );
+const addNewProject = (function () {
+  const addNewButton = document.querySelector('#new-project'),
+    inputField = document.querySelector('input#add-project'),
+    confirmButton = document.querySelector('#confirm-button'),
+    cancelButton = document.querySelector('#cancel-button'),
+    projectContent = document.querySelector(
+      '#new-project .project-content',
+    );
   const form = document.querySelector('.sidebar form');
 
   projectContent.addEventListener('click', () => {
@@ -108,8 +116,30 @@ const addProject = (function () {
     projectContent.classList.toggle('hide');
     form.classList.toggle('hide');
   });
+}());
 
-  // projectContent.classList.toggle('hide');
+const addNewTask = (function () {
+  const dialog = document.querySelector('dialog'),
+    titleInput = document.querySelector('#title'),
+    descInput = document.querySelector('#description'),
+    newTaskButton = document.querySelector('#add-task'),
+    closeButton = document.querySelector('#dialog-close'),
+    confirmButton = document.querySelector('#dialog-confirm');
+
+  newTaskButton.addEventListener('click', () => {
+    dialog.showModal();
+  });
+
+  closeButton.addEventListener('click', () => {
+    dialog.close();
+  });
+
+  confirmButton.addEventListener('click', (event) => {
+    event.preventDefault();
+    activeProject.addTask(Task(titleInput.value, descInput.value, '', 2));
+    showTasks(activeProject);
+    dialog.close();
+  });
 }());
 
 export { showProjects, showTasks };

@@ -13,6 +13,25 @@
 </head>
 
 <body>
+  <dialog>
+    <form>
+      <div class="form-body">
+        <h4>New Task</h4>
+        <div>
+          <label for="title"></label>
+          <input type="text" name="title" id="title" placeholder="Title" required="">
+        </div>
+        <div>
+          <label for="description"></label>
+          <input type="text" name="description" id="description" placeholder="Description" required="">
+        </div>
+      </div>
+      <div class="buttons">
+        <button id="dialog-close">Close</button>
+        <button id="dialog-confirm">Confirm</button>
+      </div>
+    </form>
+  </dialog>
   <header>
     <div class="logo">
       <img src="https://icons.iconarchive.com/icons/icons8/windows-8/256/Business-Todo-List-icon.png" alt="logo">
@@ -50,26 +69,23 @@
     <div class="tasks">
       <div class="task-card">
         <header>
-          <h2>Tasks</h2>
+          <h2 id="task-title">No Project Selected</h2>
         </header>
-        <div class="task-content">
-              <div class="task" id="add-task">
-                <div class="title">
-                  <div class="icon-container">
-                    <div class="material-icons">add</div>
-                  </div>
-                  <h3>Add New Task</h3>
-                </div>
+        <div class="task-content hide">
+          <div class="task" id="add-task">
+            <div class="title">
+              <div class="icon-container">
+                <div class="material-icons">add</div>
               </div>
+              <h3>Add New Task</h3>
+            </div>
           </div>
+        </div>
       </div>
-
     </div>
-
   </main>
 
-
-
+  
 </body>
 
 </html>
